@@ -36,6 +36,24 @@ const ShowPositive = ({ good, neutral, bad }) => {
   )
 }
 
+const Statistics = ({ good, neutral, bad}) => {
+
+  if (good === 0 && neutral === 0 && bad === 0) {
+    return (
+      <div>No feedback given</div>
+    )
+  }
+  else {
+    return (
+      <div>
+        <ShowAll good={good} neutral={neutral} bad={bad} />
+        <ShowAverage good={good} neutral={neutral} bad={bad} />
+        <ShowPositive good={good} neutral={neutral} bad={bad} />
+      </div>
+    )
+  }
+};
+
 const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
@@ -51,9 +69,7 @@ const App = () => {
       <Stats value={good} name='good' />
       <Stats value={neutral} name='neutral' />
       <Stats value={bad} name='bad' />
-      <ShowAll good={good} neutral={neutral} bad={bad} />
-      <ShowAverage good={good} neutral={neutral} bad={bad} />
-      <ShowPositive good={good} neutral={neutral} bad={bad} />
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   )
 }
