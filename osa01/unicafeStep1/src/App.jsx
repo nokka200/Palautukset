@@ -14,15 +14,29 @@ const Stats = ({ value, name }) => {
 
 const StrongText = ({ text }) => {
   return (
-  <div>
-      <p><strong>{text}</strong></p>
-  </div>
+      <div><strong>{text}</strong></div>
   )
+}
 
+const ShowAll = ({ good, neutral, bad }) => {
+  return (
+      <div>all {good + neutral + bad}</div>
+  )
+};
+
+const ShowAverage = ({ good, neutral, bad }) => {
+  return (
+      <div>average {(good - bad) / (good + neutral + bad)}</div>
+  )
+};
+
+const ShowPositive = ({ good, neutral, bad }) => { 
+  return (
+      <div>positive {good / (good + neutral + bad) * 100} %</div>
+  )
 }
 
 const App = () => {
-  // tallenna napit omaan tilaansa
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
@@ -37,6 +51,9 @@ const App = () => {
       <Stats value={good} name='good' />
       <Stats value={neutral} name='neutral' />
       <Stats value={bad} name='bad' />
+      <ShowAll good={good} neutral={neutral} bad={bad} />
+      <ShowAverage good={good} neutral={neutral} bad={bad} />
+      <ShowPositive good={good} neutral={neutral} bad={bad} />
     </div>
   )
 }
