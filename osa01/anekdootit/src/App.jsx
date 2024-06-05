@@ -21,16 +21,39 @@ const App = () => {
   ];
    
   const [selected, setSelected] = useState(0);
+  const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0));
 
   const handleButtonClick = (maxNumber) => {
     setSelected(Math.floor(Math.random() * maxNumber));
   };
 
+  const handleVoteClick = (selected) => { 
+    const newVotes = [...votes];
+    newVotes[selected] += 1;
+    setVotes(newVotes);
+  };
+
+  const getHighestVotes = () => {
+    let max = votes[0];
+    let maxIndex = 0;
+    for (let i = 1; i < votes.length; i++) {
+      if (votes[i] > max) {
+        maxIndex = i;
+        max = votes[i];
+      }
+    }
+    return maxIndex;
+  }
+
   return (
     <div>
+      <h1>Anecdote of the day!</h1>
       {anecdotes[selected]}
+      <p>has {votes[selected]} votes</p>
       <QuoteButton handleClick={() => handleButtonClick(anecdotes.length)} text='next anecdote' />
-      <QuoteButton handleClick={() => handleButtonClick(anecdotes.length)} text='vote' />
+      <QuoteButton handleClick={() => handleVoteClick(selected)} text='vote' />
+      <h1>Anecdote with most votes!</h1>
+      <p>{anecdotes[getHighestVotes()]} has {votes[getHighestVotes()]} votes!</p>
     </div>
   );
 }
