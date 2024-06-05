@@ -3,7 +3,7 @@ import { useState } from 'react'
 const QuoteButton = (props) => {
   return (
     <div>
-      <button onClick={props.handleClick}>next anecdote</button>
+      <button onClick={props.handleClick}>{props.text}</button>
     </div>
   )
 };
@@ -22,12 +22,17 @@ const App = () => {
    
   const [selected, setSelected] = useState(0);
 
+  const handleButtonClick = (maxNumber) => {
+    setSelected(Math.floor(Math.random() * maxNumber));
+  };
+
   return (
     <div>
       {anecdotes[selected]}
-      <QuoteButton handleClick={() => setSelected(Math.floor(Math.random() * anecdotes.length))} />
+      <QuoteButton handleClick={() => handleButtonClick(anecdotes.length)} text='next anecdote' />
+      <QuoteButton handleClick={() => handleButtonClick(anecdotes.length)} text='vote' />
     </div>
-  )
+  );
 }
 
 export default App
