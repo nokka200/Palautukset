@@ -8,7 +8,7 @@ const Button = ({ handleClick, text }) => (
 
 const StrongText = ({ text }) => {
   return (
-      <div><strong>{text}</strong></div>
+    <div><strong>{text}</strong></div>
   )
 }
 
@@ -16,12 +16,29 @@ const Statistics = (props) => {
 
   return (
     <div>
-      <StatisticLine text='good' value={props.good} />
-      <StatisticLine text='neutral' value={props.neutral} />
-      <StatisticLine text='bad' value={props.bad} />
-      <StatisticLine text='all' value={props.good + props.neutral + props.bad} />
-      <StatisticLine text='average' value={(props.good - props.bad) / (props.good + props.neutral + props.bad)} />
-      <StatisticLine text='positive' value={props.good / (props.good + props.neutral + props.bad) * 100} />
+      <table>
+        <tbody>
+          <tr>
+            <StatisticLine text='good' value={props.good} />
+          </tr>
+          <tr>
+            <StatisticLine text='neutral' value={props.neutral} />
+          </tr>
+          <tr>
+            <StatisticLine text='bad' value={props.bad} />
+          </tr>
+          <tr>
+            <StatisticLine text='all' value={props.good + props.neutral + props.bad} />
+          </tr>
+          <tr>
+            <StatisticLine text='average' value={(props.good - props.bad) / (props.good + props.neutral + props.bad)} />
+          </tr>
+          <tr>
+            <StatisticLine text='positive' value={props.good / (props.good + props.neutral + props.bad) * 100} />
+          </tr>
+
+        </tbody>
+      </table>
     </div>
   )
 };
@@ -32,44 +49,43 @@ const StatisticLine = (props) => {
   if (props.value > 0) {
     check = 1;
   };
-  switch (props.text) { 
+  switch (props.text) {
     case 'good':
       return (
-        <div>{props.text} {props.value}</div>
+        <td>{props.text} {props.value}</td>
       )
     case 'neutral':
       return (
-        <div>{props.text} {props.value}</div>
+        <td>{props.text} {props.value}</td>
       )
     case 'bad':
       return (
-        <div>{props.text} {props.value}</div>
+        <td>{props.text} {props.value}</td>
       )
     case 'all':
       if (check === 0) {
         return (
-          <div>No feedback given</div>
+          <td>No feedback given</td>
         )
       } else {
         return (
-          <div>{props.text} {props.value}</div>
+          <td>{props.text} {props.value}</td>
         )
       };
     case 'average':
       if (check === 1) {
         return (
-          <div>{props.text} {props.value}</div>
+          <td>{props.text} {props.value}</td>
         )
       };
     case 'positive':
       if (check === 1) {
         return (
-          <div>{props.text} {props.value}</div>
+          <td>{props.text} {props.value}</td>
         )
       } else {
         return null;
       };
-      
   };
 };
 
