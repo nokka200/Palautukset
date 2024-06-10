@@ -1,7 +1,7 @@
 const Course = ({ course }) => {
 
     const counter = (acc, cur) => {
-        console.log('what is happening', acc, cur.exercises)
+        //console.log('what is happening', acc, cur.exercises)
         return acc + cur.exercises
     };
 
