@@ -1,0 +1,59 @@
+Projektin luonti
+npm create vite@latest <nimi> -- --template react
+
+19/05/24
+
+Osio 0 luettu, olemme tehtävässä 0.1
+Tehtäviä ei olla vielä tehty
+
+Osa1 kohta Komponentti
+
+21/05/2024
+
+https://fullstackopen.com/osa1/java_scriptia
+Osa1 java_script
+
+kohta taulukot
+
+22/05/2024
+
+aamun sessio päättyi 1.c
+https://fullstackopen.com/osa1/komponentin_tila_ja_tapahtumankasittely
+
+jatkettiin illalla, mutta väsytti sen verran, että parempi kertaa seuraavalla kerralla uudestaan.
+
+24/05/2024
+
+päättyi
+https://fullstackopen.com/osa1/monimutkaisempi_tila_reactin_debuggaus
+Monimutkaisempi tila
+
+27/05/2024
+
+päättyi 
+https://fullstackopen.com/osa1/monimutkaisempi_tila_reactin_debuggaus
+Tilan päivitys tapahtuu asynkronisesti
+
+29/05/2024
+
+https://fullstackopen.com/osa1/monimutkaisempi_tila_reactin_debuggaus
+Tapahtumakäsittely revisited
+
+31/05/2024
+
+https://fullstackopen.com/osa1/monimutkaisempi_tila_reactin_debuggaus
+Tapahtumankäsittelijän vieminen alikomponenttiin
+
+02/06/2024
+
+https://fullstackopen.com/osa1/monimutkaisempi_tila_reactin_debuggaus
+1.7: unicafe step2
+
+05/06/2024
+https://fullstackopen.com/osa2
+Aloitus
+
+07/06/2024
+
+https://fullstackopen.com/osa2/kokoelmien_renderointi_ja_moduulit
+Antipattern: taulukon indeksit avaimina
