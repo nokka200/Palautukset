@@ -12,14 +12,26 @@ const App = () => {
       name: newName,
     };
 
-    setPersons(persons.concat(personObject));
-    setNewName('');
+    if (checkName(newName)) {
+      alert(`${newName} on jo luettelossa!`);
+      setNewName('');
+      return;
+    }
+    else {
+      setPersons(persons.concat(personObject));
+      setNewName('');
+    }
+    
   };
 
   const handleNameChange = (event) => {
     console.log(event.target.value);
     setNewName(event.target.value);
   };
+
+  const checkName = (name) => { 
+    return persons.find(person => person.name === name);
+  }
 
   return (
     <div>
