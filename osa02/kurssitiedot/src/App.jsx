@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Course from './components/Course';
 
 const App = () => {
@@ -46,7 +47,6 @@ const App = () => {
       ]
     }
   ];
-  console.log('App', courses);
 
   const courseList = courses.map(course => {
     return (
