@@ -69,3 +69,7 @@ Aloitus
 
 https://fullstackopen.com/osa2/kokoelmien_renderointi_ja_moduulit
 Antipattern: taulukon indeksit avaimina
+
+12/06/24
+Muistiinpanon tärkeyden muutos
+https://fullstackopen.com/osa2/palvelimella_olevan_datan_muokkaaminen
