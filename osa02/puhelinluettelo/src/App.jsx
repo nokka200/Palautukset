@@ -78,7 +78,6 @@ const App = () => {
 
       <Persons personToSearch={personToSearch} />
 
-      <div>debug: {newName}</div>
     </div>
   )
 
