@@ -3,7 +3,7 @@
     {
       "id": "1",
       "content": "HTML is easy",
-      "important": true
+      "important": false
     },
     {
       "id": "2",
@@ -16,28 +16,8 @@
       "important": true
     },
     {
-      "id": 4,
-      "content": "naama",
-      "important": false
-    },
-    {
-      "id": 4,
-      "content": "naama",
-      "important": true
-    },
-    {
-      "id": 6,
-      "content": "naama",
-      "important": true
-    },
-    {
-      "id": 7,
-      "content": "spuha",
-      "important": false
-    },
-    {
-      "id": 8,
-      "content": "nakki",
+      "id": "8e15",
+      "content": "Testi",
       "important": false
     }
   ]
