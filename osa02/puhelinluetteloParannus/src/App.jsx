@@ -3,7 +3,7 @@ import axios from 'axios';
 import Filter from './components/Filter';
 import PersonForm from './components/PersonForm';
 import Persons from './components/Persons';
-import numberService from './services/numbers'
+import numberService from './services/numbers';
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -35,7 +35,12 @@ const App = () => {
       return;
     }
     else {
-      setPersons(persons.concat(personObject));
+      //setPersons(persons.concat(personObject));
+      numberService
+        .create(personObject)
+        .then(response => {
+          setPersons(persons.concat(response));
+        });
       setNewName('');
       setNewNumber('');
     }
