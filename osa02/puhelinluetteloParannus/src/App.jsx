@@ -32,12 +32,23 @@ const App = () => {
     };
 
     if (checkName(newName)) {
-      setErrorMessage(`${newName} on jo luettelossa!`);
       setNewName('');
       setNewNumber('');
-      setTimeout(() => { 
-        setErrorMessage(null);
-      }, 2000);
+      if (window.confirm(`Päivitetäänkö ${newName}?`)) {
+        numberService
+          .update(checkName(newName).id, personObject)
+          .then(returnedName => {
+            setPersons(persons.map(person => person.id !== returnedName.id ? person : returnedName));
+          })
+          .catch(error => {
+            setErrorMessage(`Henkilön ${newName} numeroa ei voitu päivittää, joku virhe`);
+            setTimeout(() => {
+              setErrorMessage(null);
+            }, 2000);
+        
+          });
+        setsuccessMessage(`Henkilön ${newName} numero päivitetty!`);
+      }
     }
     else {
       numberService
