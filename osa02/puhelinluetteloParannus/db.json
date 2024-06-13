@@ -1,11 +1,6 @@
 {
   "persons": [
     {
-      "id": "eb16",
-      "name": "Niko",
-      "phone": "21515125"
-    },
-    {
       "id": "8110",
       "name": "Nikonen",
       "phone": "24155"
@@ -16,14 +11,9 @@
       "phone": "22525"
     },
     {
-      "id": "3c79",
       "name": "Mattinen",
-      "phone": "23523626"
-    },
-    {
-      "name": "Testi",
-      "phone": "241",
-      "id": "6925"
+      "phone": "24525",
+      "id": "3c79"
     }
   ]
 }

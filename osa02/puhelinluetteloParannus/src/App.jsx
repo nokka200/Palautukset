@@ -39,16 +39,18 @@ const App = () => {
           .update(checkName(newName).id, personObject)
           .then(returnedName => {
             setPersons(persons.map(person => person.id !== returnedName.id ? person : returnedName));
+            setsuccessMessage(`Henkilön ${newName} numero päivitetty!`);
+            setTimeout(() => {
+              setsuccessMessage(null);
+            }, 2000);
           })
           .catch(error => {
             setErrorMessage(`Henkilön ${newName} numeroa ei voitu päivittää, joku virhe`);
             setTimeout(() => {
               setErrorMessage(null);
             }, 2000);
-        
           });
-        setsuccessMessage(`Henkilön ${newName} numero päivitetty!`);
-      }
+      };
     }
     else {
       numberService
@@ -59,8 +61,8 @@ const App = () => {
       setsuccessMessage(`Lisätty tietokantaan ${newName}`);
       setNewName('');
       setNewNumber('');
-      
-      setTimeout(() => { 
+
+      setTimeout(() => {
         setsuccessMessage(null);
       }, 2000);
     }
@@ -93,18 +95,18 @@ const App = () => {
     if (window.confirm(`Poistetaanko ${personToDel.name}?`)) {
       numberService
         .remove(personToDel.id)
-        .then(response => { 
+        .then(response => {
           console.log('response', response);
           setPersons(persons.filter(personToDel => personToDel.id !== response.id));
           setsuccessMessage(`Poistettiin ${personToDel.name}`);
-          setTimeout(() => { 
+          setTimeout(() => {
             setsuccessMessage(null);
           }, 2000)
         })
-        .catch(error => { 
+        .catch(error => {
           setErrorMessage(`Henkilö ${personToDel.name} on jo poistettu`);
           console.log('error', error.response.data.error);
-          setTimeout(() => { 
+          setTimeout(() => {
             setErrorMessage(null);
           }, 2000)
         });
@@ -115,10 +117,10 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <Notification message={errorMessage} clsName={"error"} />
-      <Notification message={successMessage} clsName={"success"}/>
+      <Notification message={successMessage} clsName={"success"} />
 
       <Filter handleSearch={handleSearch} search={search} />
-      
+
       <h2>add a new</h2>
 
       <PersonForm
@@ -131,7 +133,7 @@ const App = () => {
 
       <h2>Numbers</h2>
 
-      <Persons personToSearch={personToSearch} personToDelete={personToDel}/>
+      <Persons personToSearch={personToSearch} personToDelete={personToDel} />
 
     </div>
   )
