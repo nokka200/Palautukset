@@ -12,6 +12,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('');
   const [search, setSearch] = useState('');
   const [errorMessage, setErrorMessage] = useState(null)
+  const [successMessage, setsuccessMessage,] = useState(null)
 
   useEffect(() => {
     console.log('effect');
@@ -37,19 +38,21 @@ const App = () => {
       setTimeout(() => { 
         setErrorMessage(null);
       }, 2000);
-      return;
     }
     else {
-      //setPersons(persons.concat(personObject));
       numberService
         .create(personObject)
         .then(response => {
           setPersons(persons.concat(response));
         });
+      setsuccessMessage(`Lisätty tietokantaan ${newName}`);
       setNewName('');
       setNewNumber('');
+      
+      setTimeout(() => { 
+        setsuccessMessage(null);
+      }, 2000);
     }
-    
   };
 
   const handleNameChange = (event) => {
@@ -82,10 +85,17 @@ const App = () => {
         .then(response => { 
           console.log('response', response);
           setPersons(persons.filter(personToDel => personToDel.id !== response.id));
-          setErrorMessage(`Poistettiin ${personToDel.name}`);
+          setsuccessMessage(`Poistettiin ${personToDel.name}`);
+          setTimeout(() => { 
+            setsuccessMessage(null);
+          }, 2000)
+        })
+        .catch(error => { 
+          setErrorMessage(`Henkilö ${personToDel.name} on jo poistettu`);
+          console.log('error', error.response.data.error);
           setTimeout(() => { 
             setErrorMessage(null);
-          }, 2000);
+          }, 2000)
         });
     }
   };
@@ -93,7 +103,8 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Notification message={errorMessage} />
+      <Notification message={errorMessage} clsName={"error"} />
+      <Notification message={successMessage} clsName={"success"}/>
 
       <Filter handleSearch={handleSearch} search={search} />
       
