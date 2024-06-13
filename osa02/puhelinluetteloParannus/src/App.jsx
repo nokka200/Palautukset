@@ -11,7 +11,7 @@ const App = () => {
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
   const [search, setSearch] = useState('');
-  const [errorMessage, setErrorMessage] = useState('Iso Virhe')
+  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
     console.log('effect');
@@ -31,9 +31,12 @@ const App = () => {
     };
 
     if (checkName(newName)) {
-      alert(`${newName} on jo luettelossa!`);
+      setErrorMessage(`${newName} on jo luettelossa!`);
       setNewName('');
       setNewNumber('');
+      setTimeout(() => { 
+        setErrorMessage(null);
+      }, 2000);
       return;
     }
     else {
