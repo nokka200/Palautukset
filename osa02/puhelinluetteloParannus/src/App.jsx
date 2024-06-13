@@ -75,14 +75,17 @@ const App = () => {
   );
 
   const personToDel = (personToDel) => {
-    console.log('personToDel', personToDel)
+    console.log('personToDel', personToDel);
     if (window.confirm(`Poistetaanko ${personToDel.name}?`)) {
       numberService
         .remove(personToDel.id)
         .then(response => { 
           console.log('response', response);
           setPersons(persons.filter(personToDel => personToDel.id !== response.id));
-          window.alert(`Poistettiin ${personToDel.name}`);
+          setErrorMessage(`Poistettiin ${personToDel.name}`);
+          setTimeout(() => { 
+            setErrorMessage(null);
+          }, 2000);
         });
     }
   };
