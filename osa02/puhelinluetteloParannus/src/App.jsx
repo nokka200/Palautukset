@@ -87,7 +87,7 @@ const App = () => {
 
       <h2>Numbers</h2>
 
-      <Persons personToSearch={personToSearch} />
+      <Persons personToSearch={personToSearch} setPerson={setPersons} persons={persons}/>
 
     </div>
   )
@@ -95,3 +95,17 @@ const App = () => {
 }
 
 export default App
+
+
+/*
+
+    const person = persons.find(person => person.id === id);
+    console.log('person', person);
+    if (window.confirm(`Poistetaanko ${person.name}?`)) {
+      numberService
+        .remove(id)
+        .then(response => {
+          setPersons(persons.filter(person => person.id !== id));
+          window.alert(`${response} poistettu!`);
+        });
+    }*/
