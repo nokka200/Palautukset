@@ -74,6 +74,19 @@ const App = () => {
     person.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const personToDel = (personToDel) => {
+    console.log('personToDel', personToDel)
+    if (window.confirm(`Poistetaanko ${personToDel.name}?`)) {
+      numberService
+        .remove(personToDel.id)
+        .then(response => { 
+          console.log('response', response);
+          setPersons(persons.filter(personToDel => personToDel.id !== response.id));
+          window.alert(`Poistettiin ${personToDel.name}`);
+        });
+    }
+  };
+
   return (
     <div>
       <h2>Phonebook</h2>
@@ -93,7 +106,7 @@ const App = () => {
 
       <h2>Numbers</h2>
 
-      <Persons personToSearch={personToSearch} setPerson={setPersons} persons={persons}/>
+      <Persons personToSearch={personToSearch} personToDelete={personToDel}/>
 
     </div>
   )
