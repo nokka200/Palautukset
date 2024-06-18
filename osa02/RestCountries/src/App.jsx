@@ -26,11 +26,12 @@ function App() {
     )
   }
 
+  //console.log('country', country[0]);
+
   // Etsitään valtiot
   const filteredCountries = country.filter((countryName) => {
     return countryName.name.common.toLowerCase().includes(search.toLowerCase());
   });
-
 
   return (
     <>
@@ -49,9 +50,4 @@ export default App;
 
 /*
 
-<ul>
-        Data: {country.map((countryName) => {
-        return <li key={countryName.name.common}>{countryName.name.common}</li>
-      })}
-      </ul>
 */
