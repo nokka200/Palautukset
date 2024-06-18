@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import countries from './services/countries'
 import Search from './components/Search'
+import Display from './components/Display';
 
 function App() {
 
@@ -35,9 +36,9 @@ function App() {
     <>
       <Search setSearch={setSearch} />
       <br />
-        {filteredCountries.map((countryName) => {
-        return <div key={countryName.name.common}>{countryName.name.common}</div>
-      })}
+
+      
+      <Display filteredCountries={filteredCountries} />
 
     </>
   )
