@@ -23,7 +23,7 @@ const Display = ({ filteredCountries }) => {
                     })}
                 </ul>
                 <div>
-                    <img src={targetCountry.flags.png} alt={targetCountry.flags.alt} width="auto" height="auto" />  
+                    <img src={targetCountry.flags.png} alt={targetCountry.flags.alt}/>  
                 </div>
                 
             </>

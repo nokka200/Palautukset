@@ -15,6 +15,9 @@ function App() {
     .then(response => {
       //console.log(response);
       setCountry(response);
+    })
+    .catch(error => {
+      console.error("Error fetching data: ", error);
     });
   }, []);
 
