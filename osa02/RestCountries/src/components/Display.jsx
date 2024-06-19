@@ -32,7 +32,7 @@ const Display = ({ filteredCountries }) => {
         return (
             <>
                 {filteredCountries.map((countryName) => {
-                    return <div key={countryName.name.common}>{countryName.name.common}</div>
+                    return <div key={countryName.name.common}>{countryName.name.common} <button>show</button> </div> // Pitä tehdä oma komponentti, jota tässä kutsumme, käytetään else if koodia siinä
                 })}
             </>
         );
