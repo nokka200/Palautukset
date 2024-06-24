@@ -1,12 +1,32 @@
 Projektin luonti
 npm create vite@latest <nimi> -- --template react
 
+node.js luonit
+npm init
+
+node.js ja express kirjasto
+npm install express
+
+Asentaa kehitys riippuvuuden, nodemon tarkkailee koodin päivityksiä
+npm install --save-dev nodemon
+
+package.json rivi scripts kohtaan
+"dev": "nodemon index.js"
+npm run dev
+
 json-server käynnistys
 npx json-server --port=3001 --watch <nimi>
 
 Toimii kun on asennettu npm install json-server --save-dev ja muokattu package.json "server": "json-server -p3001 --watch db.json"
 
 npm run server 
+
+NPM komentoja
+
+npm start
+aloittaa sovelluksen ja käyttää scripts -> start
+npm run dev
+aloittaa sovelluksen ja käyttää scripts -> dev
 
 Lisäosia
 
@@ -73,3 +93,15 @@ Antipattern: taulukon indeksit avaimina
 12/06/24
 Palvelimen kanssa tapahtuvan kommunikoinnin eristäminen omaan moduuliin
 https://fullstackopen.com/osa2/palvelimella_olevan_datan_muokkaaminen
+
+19/06/24
+Express
+https://fullstackopen.com/osa3/node_js_ja_express#yksinkertainen-web-palvelin
+
+20/06/24
+REST
+https://fullstackopen.com/osa3/node_js_ja_express#yksinkertainen-web-palvelin
+
+24/06/25
+Tehtävät 3.1. -3.6.
+https://fullstackopen.com/osa3/node_js_ja_express#yksinkertainen-web-palvelin
