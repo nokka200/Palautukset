@@ -116,3 +116,7 @@ https://fullstackopen.com/osa3/node_js_ja_express#yksinkertainen-web-palvelin
 24/06/24
 Same origin policy ja CORS
 https://fullstackopen.com/osa3/sovellus_internetiin
+
+25/06/25
+Tehtävät 3.9.-3.11.
+https://fullstackopen.com/osa3/sovellus_internetiin#frontendin-deployauksen-suoraviivaistus
