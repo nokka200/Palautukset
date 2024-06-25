@@ -90,21 +90,21 @@ const App = () => {
     person.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const personToDel = (Del) => {
-    console.log('personToDel', Del);
-    if (window.confirm(`Poistetaanko ${Del.name}?`)) {
+  const personToDel = (del) => {
+    console.log('personToDel', del);
+    if (window.confirm(`Poistetaanko ${del.name}?`)) {
       numberService
-        .remove(Del.id)
+        .remove(del.id)
         .then(response => {
           console.log('response', response);
-          setPersons(persons.filter(Del => Del.id !== response.id));
-          setsuccessMessage(`Poistettiin ${Del.name}`);
+          setPersons(persons.filter(person => person.id !== del.id));
+          setsuccessMessage(`Poistettiin ${del.name}`);
           setTimeout(() => {
             setsuccessMessage(null);
           }, 2000)
         })
         .catch(error => {
-          setErrorMessage(`Henkilö ${Del.name} on jo poistettu`);
+          setErrorMessage(`Henkilö ${del.name} on jo poistettu`);
           console.log('error', error.response.data.error);
           setTimeout(() => {
             setErrorMessage(null);
