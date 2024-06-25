@@ -28,7 +28,7 @@ const App = () => {
     e.preventDefault();
     const personObject = {
       name: newName,
-      phone: newNumber
+      number: newNumber
     };
 
     if (checkName(newName)) {
@@ -90,21 +90,21 @@ const App = () => {
     person.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const personToDel = (personToDel) => {
-    console.log('personToDel', personToDel);
-    if (window.confirm(`Poistetaanko ${personToDel.name}?`)) {
+  const personToDel = (Del) => {
+    console.log('personToDel', Del);
+    if (window.confirm(`Poistetaanko ${Del.name}?`)) {
       numberService
-        .remove(personToDel.id)
+        .remove(Del.id)
         .then(response => {
           console.log('response', response);
-          setPersons(persons.filter(personToDel => personToDel.id !== response.id));
-          setsuccessMessage(`Poistettiin ${personToDel.name}`);
+          setPersons(persons.filter(Del => Del.id !== response.id));
+          setsuccessMessage(`Poistettiin ${Del.name}`);
           setTimeout(() => {
             setsuccessMessage(null);
           }, 2000)
         })
         .catch(error => {
-          setErrorMessage(`Henkilö ${personToDel.name} on jo poistettu`);
+          setErrorMessage(`Henkilö ${Del.name} on jo poistettu`);
           console.log('error', error.response.data.error);
           setTimeout(() => {
             setErrorMessage(null);
