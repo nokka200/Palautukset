@@ -1,11 +1,21 @@
 Projektin luonti
+
+React Vite luonti
 npm create vite@latest <nimi> -- --template react
 
-node.js luonit
+node.js luominen
 npm init
 
-node.js ja express kirjasto
+node.js KIRJASTOJA
+
+Express (HTML kutsujavarten)
 npm install express
+
+Async try catch middleware
+npm install express-async-errors
+
+Mongodb
+npm install mongoose
 
 Asentaa kehitys riippuvuuden, nodemon tarkkailee koodin päivityksiä
 npm install --save-dev nodemon
@@ -17,12 +27,34 @@ npm run dev
 Ohittaa same origin policy ja CORS haasteen
 npm install cors
 
+Pystytään asettamaan ympäristö muuttujia, kun ajetaan ohjelmaa npm skriptien avulla, katso package.json
+npm install --save-dev cross-env
+
 json-server käynnistys
 npx json-server --port=3001 --watch <nimi>
 
 Toimii kun on asennettu npm install json-server --save-dev ja muokattu package.json "server": "json-server -p3001 --watch db.json"
-
 npm run server 
+
+Testikirjasto Jestin avuksi
+npm install --save-dev supertest
+
+Salasanojen hashaaminen
+npm install bcrypt
+
+JSON web token generointi
+npm install jsonwebtoken
+
+TESTI komentoja
+Suorittaa ainoastaan test.only merkatut
+npm test -- --test-only
+
+Tietyn tiedoston testit
+npm test -- tests/note_api.test.js
+
+Testi nimen perusteella, parametri voi viitata testin tai describe-lohkon nimeen. Parametrina voidaan antaa myös nimen osa.
+npm test -- --test-name-pattern="the first note is about HTTP methods"
+
 
 NPM komentoja
 
@@ -30,11 +62,73 @@ npm start
 aloittaa sovelluksen ja käyttää scripts -> start
 npm run dev
 aloittaa sovelluksen ja käyttää scripts -> dev
+npm --inspect <tiedosto>
+aloittaa devtools debuggerin
 
-Lisäosia
+selvittää testauskattavuuden, huom pyytää asentamaan myös kirjaston
+npm test -- --coverage
 
-Palvelimelta tiedon hakemiseen
+SNAPSHOT testaus
+https://vitest.dev/guide/snapshot
+
+Playwright testaus
+https://playwright.dev/
+
+REACT kirjastoja
+
+Palvelimelta tiedon hakemiseen eli html kutsujen tekeminen
 npm install axios
+
+React testaus, sisältää vitest kirjaston ja Web-selainta simuloivan jsdom-kirjaston
+npm install --save-dev vitest jsdom
+
+Lisää react testausta
+Tarvitsemme Vitestin lisäksi testaamiseen apukirjaston,
+jonka avulla React-komponentteja voidaan renderöidä testejä varten.
+Tähän tarkoitukseen ehdottomasti paras vaihtoehto on React Testing Library. 
+Testien ilmaisuvoimaa kannattaa laajentaa myös kirjastolla jest-dom.
+
+https://github.com/testing-library/react-testing-library
+https://github.com/testing-library/jest-dom
+npm install --save-dev @testing-library/react @testing-library/jest-dom
+
+apukirjasto https://testing-library.com/docs/user-event/intro/
+painikkeita ja eventteja varten
+Sisällön näyttämisen lisäksi toinen Note-komponenttien vastuulla oleva asia on huolehtia siitä, että propsina välitettyä tapahtumankäsittelijäfunktiota toggleImportance kutsutaan kun noten yhteydessä olevaa nappia painetaan.
+
+npm install --save-dev @testing-library/user-event
+
+eslint plugin testien virheilmoituksia varten, huom .eslint.cjs tiedosta pitää myös muokata
+npm install --save-dev eslint-plugin-vitest-globals
+
+HUOM, muista päivittää package.json, testausta varten oma skripti "test": "vitest run"
+
+Asentaa redux kirjaston https://redux.js.org/
+npm install redux
+
+Varmistaa, että reduce funktiot ovat puhtaita
+npm install --save-dev deep-freeze
+
+Molemmissa toimivat kirjastot
+
+ESlint, tarkistaa onko koodi kunnossa
+npm install eslint @eslint/js --save-dev
+
+ESlint tyyli
+npm install --save-dev @stylistic/eslint-plugin-js
+
+Ympäristö muuttujat .env tiedostosta
+npm install dotenv
+
+Komponentin olettamat ja edellyttämät propsit ja niiden tyypit
+npm install prop-types
+
+Atlas Mongodb
+Username: nokka200
+PW:	hYNpn1Sv05qWUntc
+
+url:
+mongodb+srv://nokka200:<password>@cluster0.5wiu5zn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 19/05/24
 
@@ -117,6 +211,103 @@ https://fullstackopen.com/osa3/node_js_ja_express#yksinkertainen-web-palvelin
 Same origin policy ja CORS
 https://fullstackopen.com/osa3/sovellus_internetiin
 
-25/06/25
+25/06/24
 Tehtävät 3.9.-3.11.
 https://fullstackopen.com/osa3/sovellus_internetiin#frontendin-deployauksen-suoraviivaistus
+
+29/06/24
+MongoDB
+https://fullstackopen.com/osa3/tietojen_tallettaminen_mongo_db_tietokantaan
+
+02/07/24
+Skeema
+Frontendin ja backendin yhteistoiminnallisuuden varmistaminen
+Tehtävät 3.13.-3.14.
+Virheiden käsittely
+https://fullstackopen.com/osa3/tietojen_tallettaminen_mongo_db_tietokantaan
+
+03/07/24
+Virheiden käsittely middlewaree
+https://fullstackopen.com/osa3/tietojen_tallettaminen_mongo_db_tietokantaan
+
+09/07/24
+Tehtävät 3.15.-3.18. / 3.19.-3.21. / 3.22.
+HUOM nämä tehty
+Sovelluksen rakenne
+https://fullstackopen.com/osa4/sovelluksen_rakenne_ja_testauksen_alkeet
+
+11/07/24
+Tehtävät 4.1. -4.2.
+Node-sovellusten testaaminen
+https://fullstackopen.com/osa4/sovelluksen_rakenne_ja_testauksen_alkeet
+Backendin testaaminen
+https://fullstackopen.com/osa4/backendin_testaaminen
+
+12/07/24
+Testien suorittaminen yksitellen
+async/await
+Lisää testejä ja backendin refaktorointia
+Try-catchin eliminointi
+Testin beforeEach-metodin optimointi
+Testejä tekevän full stack ‑sovelluskehittäjän vala
+https://fullstackopen.com/osa4/backendin_testaaminen
+
+15/07/24
+Viitteet kokoelmien välillä
+Käyttäjien luominen
+https://fullstackopen.com/osa4/kayttajien_hallinta
+
+16/07/24
+Token-perustainen kirjautuminen
+Token-perustaisen kirjautumisen ongelmat
+Tehtävät 4.15.-4.23. TEKEMÄTTÄ
+https://fullstackopen.com/osa4/token_perustainen_kirjautuminen
+
+18/07/24
+4.18: blogilistan laajennus, step6
+https://fullstackopen.com/osa4/token_perustainen_kirjautuminen#tehtavat-4-15-4-23
+
+Muistiinpanojen luominen
+https://fullstackopen.com/osa5/kirjautuminen_frontendissa
+
+19/07/24
+Tehtävät 5.1.-5.4.
+https://fullstackopen.com/osa5/kirjautuminen_frontendissa#tokenin-tallettaminen-selaimen-local-storageen
+
+23/07/24
+Lomakkeiden tila
+Tehtävät 5.5.-5.11.
+https://fullstackopen.com/osa5/props_children_ja_proptypet
+
+24/07/24
+PropTypes
+Tehtävä 5.12.
+React-sovellusten testaaminen
+https://fullstackopen.com/osa5/react_sovellusten_testaaminen
+
+30/07/24
+Testien sijainti
+Komponentin Togglable testit
+https://fullstackopen.com/osa5/react_sovellusten_testaaminen
+
+31/07/24
+Tehtävät 5.13.-5.16.
+https://fullstackopen.com/osa5/react_sovellusten_testaaminen#komponentin-renderointi-testia-varten
+
+07/08/24
+Testien alustus HUOM jatkoa tästä
+https://fullstackopen.com/osa5/end_to_end_testaus_playwright
+
+19/08/24
+Redux-muistiinpanot
+Array spread ‑syntaksi
+https://fullstackopen.com/osa6/flux_arkkitehtuuri_ja_redux#redux
+
+22/08/24
+Tehtävät 6.1.-6.2.
+
+alkuperäinen
+P%492379223069ot
+
+nykyinen
+rT.JFZHvu.rDH7p
